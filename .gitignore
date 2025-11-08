@@ -1,0 +1,60 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors/IDE
+.vscode/
+.idea/
+*.code-workspace
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+.eggs/
+.mypy_cache/
+.pytest_cache/
+.tox/
+.venv/
+venv/
+.env
+.env.*
+.coverage*
+htmlcov/
+.pyre/
+.ruff_cache/
+
+# FastAPI/Starlette
+instance/
+
+# Alembic
+alembic/versions/*.pyc
+
+# Node/Next.js
+node_modules/
+.next/
+.next-static/
+.next-cache/
+coverage/
+build/
+dist/
+yarn.lock
+pnpm-lock.yaml
+npm-debug.log*
+yarn-error.log*
+
+# Logs
+logs/
+*.log
+
+# Docker
+*.pid
+
+# Frontend artifacts
+frontend/.vercel/
+
+# Local data
+*.sqlite3
