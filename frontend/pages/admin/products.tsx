@@ -4,7 +4,7 @@ import ProductCard from '../../components/ProductCard';
 import { useRouter } from 'next/router';
 
 const ProductsPage = () => {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const router = useRouter();
 
@@ -23,11 +23,11 @@ const ProductsPage = () => {
     loadProducts();
   }, []);
 
-  const handleDelete = async (id) => {
+  const handleDelete = async (id: string) => {
     if (confirm('Are you sure you want to delete this product?')) {
       try {
         await deleteProduct(id);
-        setProducts(products.filter(product => product.id !== id));
+  setProducts(products.filter((product: any) => String(product.id) !== id));
       } catch (error) {
         console.error('Error deleting product:', error);
       }
@@ -43,7 +43,7 @@ const ProductsPage = () => {
       <h1>Manage Products</h1>
       <button onClick={() => router.push('/admin/products/new')}>Add New Product</button>
       <div className="product-list">
-        {products.map(product => (
+        {products.map((product: any) => (
           <ProductCard key={product.id} product={product} onDelete={handleDelete} />
         ))}
       </div>

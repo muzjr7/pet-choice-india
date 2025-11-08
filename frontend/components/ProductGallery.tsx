@@ -1,27 +1,36 @@
 import React from 'react';
-import ProductCard from './ProductCard';
+import ProductCard, { Product } from './ProductCard';
 import styles from '../styles/components.module.css';
 
-interface Product {
-  id: string;
-  name: string;
-  image: string;
-  price: number;
-}
 
 interface ProductGalleryProps {
-  products: Product[];
+  products?: Product[];
+  images?: { url: string; alt?: string }[];
 }
 
-const ProductGallery: React.FC<ProductGalleryProps> = ({ products }) => {
+const ProductGallery: React.FC<ProductGalleryProps> = ({ products, images }) => {
+  if (products) {
+    return (
+      <div className={styles.productGallery}>
+        {products.length > 0 ? (
+          products.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))
+        ) : (
+          <p>No products available.</p>
+        )}
+      </div>
+    );
+  }
+  // Fallback render for images-only usage
   return (
     <div className={styles.productGallery}>
-      {products.length > 0 ? (
-        products.map((product) => (
-          <ProductCard key={product.id} product={product} />
+      {images && images.length ? (
+        images.map((img: { url: string; alt?: string }, idx: number) => (
+          <img key={idx} src={img.url} alt={img.alt || `image-${idx}`} className={styles.image} />
         ))
       ) : (
-        <p>No products available.</p>
+        <p>No images available.</p>
       )}
     </div>
   );

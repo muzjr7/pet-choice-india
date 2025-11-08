@@ -1,10 +1,17 @@
 import { useEffect, useState } from 'react';
 import { fetchOrders } from '../utils/api';
 
+export interface OrderSummary {
+    id: string | number;
+    status?: string;
+    total?: number;
+    createdAt?: string;
+}
+
 const useOrders = () => {
-    const [orders, setOrders] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+    const [orders, setOrders] = useState<OrderSummary[]>([]);
+    const [loading, setLoading] = useState<boolean>(true);
+    const [error, setError] = useState<Error | null>(null);
 
     useEffect(() => {
         const getOrders = async () => {
@@ -12,7 +19,7 @@ const useOrders = () => {
                 const data = await fetchOrders();
                 setOrders(data);
             } catch (err) {
-                setError(err);
+                setError(err as Error);
             } finally {
                 setLoading(false);
             }

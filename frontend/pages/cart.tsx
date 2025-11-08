@@ -1,10 +1,10 @@
 import React from 'react';
-import { useCart } from '../hooks/useCart';
+import useCart from '../hooks/useCart';
 import CartSummary from '../components/CartSummary';
 import { useRouter } from 'next/router';
 
 const CartPage: React.FC = () => {
-    const { cartItems, removeFromCart, clearCart } = useCart();
+    const { cartItems, handleRemoveFromCart } = useCart();
     const router = useRouter();
 
     const handleCheckout = () => {
@@ -20,21 +20,17 @@ const CartPage: React.FC = () => {
             ) : (
                 <div>
                     <ul>
-                        {cartItems.map(item => (
+                        {cartItems.map((item: any) => (
                             <li key={item.id}>
                                 <div>
                                     <h2>{item.name}</h2>
                                     <p>Price: ₹{item.price}</p>
-                                    <button onClick={() => removeFromCart(item.id)}>Remove</button>
+                                    <button onClick={() => handleRemoveFromCart(item.id)}>Remove</button>
                                 </div>
                             </li>
                         ))}
                     </ul>
-                    <CartSummary 
-                        items={cartItems} 
-                        onClearCart={clearCart} 
-                        onCheckout={handleCheckout} 
-                    />
+                    <CartSummary />
                 </div>
             )}
         </div>

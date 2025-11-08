@@ -1,4 +1,4 @@
-/ pet-choice-india/pet-choice-india/frontend/styles/components.module.css
+/* components.module.css */
 
 /* Component styles for Pet Choice India */
 
@@ -10,6 +10,10 @@
     text-align: center;
 }
 
+.logo { font-weight: 700; }
+.nav ul { list-style: none; display: flex; gap: 1rem; justify-content: center; padding: 0; margin: 0; }
+.nav a { color: inherit; }
+
 /* Footer styles */
 .footer {
     background-color: #333333; /* Charcoal */
@@ -19,13 +23,25 @@
 }
 
 /* Product card styles */
-.productCard {
+.productCard,
+.card {
     border: 1px solid #2BB6A3; /* Teal */
     border-radius: 10px;
     padding: 1rem;
     margin: 1rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+.image { width: 100%; height: auto; display: block; }
+.title { font-size: 1rem; margin: 0.5rem 0; }
+.price { color: #333333; font-weight: 600; }
+.actions { display: flex; gap: 0.5rem; }
+.button { background: #2BB6A3; color: #fff; border: 0; border-radius: 6px; padding: 0.5rem 0.75rem; cursor: pointer; }
+.buttonDanger { background: #F07B52; color: #fff; border: 0; border-radius: 6px; padding: 0.5rem 0.75rem; cursor: pointer; }
+
+.productGallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; }
+.main { padding: 1rem; }
+.productGrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; }
 
 /* Order table styles */
 .orderTable {

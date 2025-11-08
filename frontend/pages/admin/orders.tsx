@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { useFetchOrders } from '../../hooks/useOrders';
+import React from 'react';
+import useOrders from '../../hooks/useOrders';
 import OrderTable from '../../components/OrderTable';
-import { Order } from '../../utils/api';
 
 const OrdersPage: React.FC = () => {
-  const { orders, loading, error } = useFetchOrders();
+  const { orders, loading, error } = useOrders();
   
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error loading orders: {error.message}</div>;
@@ -12,7 +11,7 @@ const OrdersPage: React.FC = () => {
   return (
     <div>
       <h1>Orders Management</h1>
-      <OrderTable orders={orders} />
+      <OrderTable orders={orders.map(o => ({ ...o, date: '' }))} />
     </div>
   );
 };

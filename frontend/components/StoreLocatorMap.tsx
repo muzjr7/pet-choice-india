@@ -15,7 +15,8 @@ const StoreLocatorMap: React.FC = () => {
                 const data = await response.json();
                 setStores(data);
             } catch (err) {
-                setError(err.message);
+                const msg = err instanceof Error ? err.message : 'Unknown error';
+                setError(msg);
             } finally {
                 setLoading(false);
             }

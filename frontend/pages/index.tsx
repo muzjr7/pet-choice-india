@@ -3,7 +3,7 @@ import Head from 'next/head';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import ProductCard from '../components/ProductCard';
-import { useFetchProducts } from '../hooks/useFetchProducts';
+import useFetchProducts from '../hooks/useFetchProducts';
 import styles from '../styles/components.module.css';
 
 const HomePage = () => {
@@ -22,7 +22,7 @@ const HomePage = () => {
                 {loading && <p>Loading products...</p>}
                 {error && <p>Error loading products: {error.message}</p>}
                 <div className={styles.productGrid}>
-                    {products && products.map(product => (
+                    {products && products.map((product: any) => (
                         <ProductCard key={product.id} product={product} />
                     ))}
                 </div>
