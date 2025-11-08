@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { fetchProducts as fetchProductsApi } from '../utils/api';
 
 export interface SimpleProduct {
     id: string | number;
@@ -16,8 +16,8 @@ const useFetchProducts = () => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await axios.get('/api/products'); // Adjust the endpoint as needed
-                setProducts(response.data as SimpleProduct[]);
+                const data = await fetchProductsApi();
+                setProducts(data as SimpleProduct[]);
             } catch (err) {
                 setError(err as Error);
             } finally {
