@@ -1,8 +1,9 @@
 import React from 'react';
-import { useCart } from '../hooks/useCart';
+import useCart, { CartItem } from '../hooks/useCart';
 
 const CartSummary: React.FC = () => {
-    const { cartItems, totalAmount } = useCart();
+    const { cartItems } = useCart();
+    const totalAmount = cartItems.reduce((sum: number, item: any) => sum + (item.price || 0) * (item.quantity || 1), 0);
 
     return (
         <div className="cart-summary">
@@ -12,11 +13,11 @@ const CartSummary: React.FC = () => {
             ) : (
                 <div>
                     <ul>
-                        {cartItems.map(item => (
-                            <li key={item.id}>
-                                {item.name} - Quantity: {item.quantity} - Price: ₹{item.price}
-                            </li>
-                        ))}
+                                                {cartItems.map((item: CartItem) => (
+                                                    <li key={item.id}>
+                                                        {item.name ?? 'Unnamed'} - Quantity: {item.quantity ?? 1} - Price: ₹{item.price ?? 0}
+                                                    </li>
+                                                ))}
                     </ul>
                     <h3>Total Amount: ₹{totalAmount}</h3>
                 </div>

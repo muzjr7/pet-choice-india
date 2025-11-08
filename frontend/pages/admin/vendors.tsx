@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { fetchVendors, deleteVendor } from '../../utils/api';
-import { Vendor } from '../../types/vendor'; // Assuming you have a Vendor type defined
+import { Vendor } from '../../types/vendor';
 
 const VendorsPage: React.FC = () => {
     const [vendors, setVendors] = useState<Vendor[]>([]);

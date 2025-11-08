@@ -1,10 +1,10 @@
 import React from 'react';
 
-interface Order {
-  id: string;
+export interface Order {
+  id: string | number;
   date: string;
-  total: number;
-  status: string;
+  total?: number;
+  status?: string;
 }
 
 interface OrderTableProps {
@@ -30,8 +30,8 @@ const OrderTable: React.FC<OrderTableProps> = ({ orders }) => {
               <tr key={order.id}>
                 <td>{order.id}</td>
                 <td>{new Date(order.date).toLocaleDateString()}</td>
-                <td>₹{order.total.toFixed(2)}</td>
-                <td>{order.status}</td>
+                <td>{order.total !== undefined ? `₹${order.total.toFixed(2)}` : '—'}</td>
+                <td>{order.status ?? '—'}</td>
               </tr>
             ))
           ) : (
