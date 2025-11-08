@@ -1,0 +1,8 @@
+/* Initial brand token defaults; can be overwritten by scripts/figma/fetch-tokens.mjs */
+:root{
+  --color-brand-terracotta: #F07B52;
+  --color-brand-teal: #2BB6A3;
+  --color-brand-pastel-yellow: #F9E5A1;
+  --color-brand-charcoal: #333333;
+  --color-brand-white: #FFFFFF;
+}

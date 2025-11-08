@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "figma:tokens": "node scripts/figma/fetch-tokens.mjs",
+    "figma:assets": "node scripts/figma/fetch-assets.mjs"
   },
   "dependencies": {
     "next": "latest",

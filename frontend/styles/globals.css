@@ -1,9 +1,11 @@
+@import './tokens.css';
+
 body {
     margin: 0;
     padding: 0;
     font-family: 'Open Sans', sans-serif;
-    background-color: #FFFFFF;
-    color: #333333;
+    background-color: var(--color-brand-white);
+    color: var(--color-brand-charcoal);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -13,7 +15,7 @@ h1, h2, h3, h4, h5, h6 {
 
 a {
     text-decoration: none;
-    color: #2BB6A3;
+    color: var(--color-brand-teal);
 }
 
 a:hover {
@@ -25,13 +27,13 @@ button {
     border: none;
     border-radius: 8px;
     padding: 10px 20px;
-    background-color: #F07B52;
-    color: #FFFFFF;
+    background-color: var(--color-brand-terracotta);
+    color: var(--color-brand-white);
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #F9E5A1;
+    background-color: var(--color-brand-pastel-yellow);
 }
 
 .card {
@@ -52,14 +54,14 @@ button:hover {
 }
 
 .footer {
-    background-color: #F9E5A1;
+    background-color: var(--color-brand-pastel-yellow);
     padding: 20px;
     text-align: center;
 }
 
 .header {
-    background-color: #2BB6A3;
+    background-color: var(--color-brand-teal);
     padding: 20px;
-    color: #FFFFFF;
+    color: var(--color-brand-white);
     text-align: center;
 }
