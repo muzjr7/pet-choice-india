@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pet-choice-frontend
+  labels:
+    app: pet-choice-frontend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: pet-choice-frontend
+  template:
+    metadata:
+      labels:
+        app: pet-choice-frontend
+    spec:
+      containers:
+        - name: frontend
+          image: your-docker-repo/pet-choice-frontend:latest
+          ports:
+            - containerPort: 3000
+          env:
+            - name: NEXT_PUBLIC_API_URL
+              value: "http://backend-service:8000" # Update with your backend service URL
+          resources:
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+            requests:
+              memory: "256Mi"
+              cpu: "250m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pet-choice-frontend
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: 3000
+  selector:
+    app: pet-choice-frontend

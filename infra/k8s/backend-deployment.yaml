@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pet-choice-backend
+  labels:
+    app: pet-choice-backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: pet-choice-backend
+  template:
+    metadata:
+      labels:
+        app: pet-choice-backend
+    spec:
+      containers:
+        - name: backend
+          image: your-docker-repo/pet-choice-backend:latest
+          ports:
+            - containerPort: 8000
+          env:
+            - name: DATABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: db-secret
+                  key: database_url
+            - name: REDIS_URL
+              valueFrom:
+                secretKeyRef:
+                  name: redis-secret
+                  key: redis_url
+            - name: CELERY_BROKER_URL
+              valueFrom:
+                secretKeyRef:
+                  name: redis-secret
+                  key: redis_url
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "500m"
+            limits:
+              memory: "512Mi"
+              cpu: "1"
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: pet-choice-backend
+spec:
+  type: ClusterIP
+  ports:
+    - port: 8000
+      targetPort: 8000
+  selector:
+    app: pet-choice-backend

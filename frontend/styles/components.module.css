@@ -1,0 +1,60 @@
+/ pet-choice-india/pet-choice-india/frontend/styles/components.module.css
+
+/* Component styles for Pet Choice India */
+
+/* Header styles */
+.header {
+    background-color: #F07B52; /* Terracotta */
+    color: #FFFFFF; /* White */
+    padding: 1rem;
+    text-align: center;
+}
+
+/* Footer styles */
+.footer {
+    background-color: #333333; /* Charcoal */
+    color: #F9E5A1; /* Pastel Yellow */
+    padding: 1rem;
+    text-align: center;
+}
+
+/* Product card styles */
+.productCard {
+    border: 1px solid #2BB6A3; /* Teal */
+    border-radius: 10px;
+    padding: 1rem;
+    margin: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Order table styles */
+.orderTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.orderTable th, .orderTable td {
+    border: 1px solid #F07B52; /* Terracotta */
+    padding: 0.5rem;
+    text-align: left;
+}
+
+/* KPI widget styles */
+.kpiWidget {
+    background-color: #F9E5A1; /* Pastel Yellow */
+    border-radius: 10px;
+    padding: 1rem;
+    margin: 1rem;
+    text-align: center;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .productCard {
+        margin: 0.5rem;
+    }
+    
+    .kpiWidget {
+        margin: 0.5rem;
+    }
+}

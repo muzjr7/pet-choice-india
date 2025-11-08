@@ -1,0 +1,23 @@
+[tool]
+name = "Pet Choice India"
+version = "0.1.0"
+description = "A headless e-commerce platform for pet products in India."
+authors = ["Your Name <youremail@example.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+fastapi = "^0.75.0"
+uvicorn = "^0.17.0"
+sqlalchemy = "^1.4.27"
+psycopg2 = "^2.9.1"
+pydantic = "^1.8.2"
+celery = "^5.1.2"
+redis = "^3.5.3"
+alembic = "^1.7.0"
+python-jose = "^3.3.0"
+httpx = "^0.19.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

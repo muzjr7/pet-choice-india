@@ -1,0 +1,17 @@
+FastAPI
+uvicorn
+sqlalchemy
+psycopg2-binary
+pydantic
+python-jose
+passlib[bcrypt]
+celery
+redis
+alembic
+httpx
+python-dotenv
+CORS
+pytest
+pytest-asyncio
+pytest-cov
+flower

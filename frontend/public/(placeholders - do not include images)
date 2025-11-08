@@ -1,0 +1,14 @@
+public/README.md
+
+# Public Assets for Pet Choice India
+
+This directory contains static assets for the Pet Choice India frontend application. 
+
+## Placeholders
+
+- **images/**: Placeholder for product images, banners, and other graphics.
+- **favicon.ico**: Placeholder for the favicon of the application.
+- **robots.txt**: Placeholder for the robots.txt file to manage web crawler access.
+- **manifest.json**: Placeholder for the web app manifest file for Progressive Web App (PWA) support.
+
+Please replace the placeholders with actual assets as needed.

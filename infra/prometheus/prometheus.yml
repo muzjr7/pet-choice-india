@@ -1,0 +1,25 @@
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: 'backend'
+    static_configs:
+      - targets: ['backend:8000']  # Replace with your backend service address and port
+
+  - job_name: 'frontend'
+    static_configs:
+      - targets: ['frontend:3000']  # Replace with your frontend service address and port
+
+  - job_name: 'celery'
+    static_configs:
+      - targets: ['celery:5555']  # Replace with your Celery Flower service address and port
+
+  - job_name: 'postgres'
+    static_configs:
+      - targets: ['postgres:5432']  # Replace with your PostgreSQL service address and port
+
+  - job_name: 'redis'
+    static_configs:
+      - targets: ['redis:6379']  # Replace with your Redis service address and port
+
+# Add additional scrape configurations as needed for other services.
